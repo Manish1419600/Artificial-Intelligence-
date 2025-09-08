@@ -1,6 +1,7 @@
+<<<<<<< HEAD
 # 🤖 AI Awareness Website
 
-A comprehensive, interactive website about Artificial Intelligence featuring modern design, animations, and AI-powered chatbot.
+A comprehensive, interactive website about Artificial Intelligence featuring modern design, animations, and AI-powered chatbot created by **Chauhan Ji**.
 
 ## ✨ Features
 
@@ -114,3 +115,7 @@ Created by **Chauhan Ji** - Your AI Technology Expert
 
 ---
 ⭐ **Star this repository if you found it helpful!**
+=======
+# Artificial-Intelligence-
+"Discover the world of Artificial Intelligence – from its basics to real-world applications. Learn how AI is shaping our future, its benefits, challenges, and ethical impact on society."
+>>>>>>> 9f954c712003033275c1c2ff8fa611a80a9b3fdf
