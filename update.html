@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI News & Updates • Chauhan Ji AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #070915;
+      --card: rgba(255,255,255,0.06);
+      --fg: #e7ecff;
+      --muted: #a9b1d6;
+      --brand: #6c8bfd;
+      --brand-2: #8a5bff;
+      --ok: #39d98a; 
+      --warn: #f6c445;
+      --danger: #ff6b6b;
+      --ring: rgba(108,139,253,.5);
+      --glass: rgba(255,255,255,.08);
+      --shadow: 0 10px 40px rgba(0,0,0,.35);
+    }
+    
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    
+    body{
+      margin:0; 
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--fg); 
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(124, 86, 255, .35), transparent 60%),
+                  radial-gradient(900px 700px at 110% 10%, rgba(108, 139, 253, .35), transparent 55%),
+                  linear-gradient(180deg, #0a0e23 0%, var(--bg) 45%, #05060f 100%);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    
+    .container{width:min(1100px, 92%); margin-inline:auto}
+    
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 10px 16px;
+      border-radius: 25px;
+      color: var(--fg);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    
+    .back-btn:hover {
+      background: rgba(255,255,255,.2);
+      transform: translateY(-2px);
+    }
+    
+    .news-header {
+      text-align: center;
+      padding: 4rem 0 2rem 0;
+    }
+    
+    .news-header h1 {
+      font-size: clamp(28px, 4vw, 48px);
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2), #39d98a);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientText 4s ease infinite;
+    }
+    
+    .upload-section {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 600px;
+      box-shadow: var(--shadow);
+    }
+    
+    .upload-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .form-group label {
+      font-weight: 600;
+      color: var(--fg);
+    }
+    
+    .form-input {
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      color: var(--fg);
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    
+    .form-input:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(108,139,253,.2);
+    }
+    
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .image-upload {
+      position: relative;
+      border: 2px dashed rgba(255,255,255,.3);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .image-upload:hover {
+      border-color: var(--brand);
+      background: rgba(108,139,253,.05);
+    }
+    
+    .image-upload.dragover {
+      border-color: var(--ok);
+      background: rgba(57,217,138,.05);
+    }
+    
+    .image-upload input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    .upload-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .image-preview {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    
+    .image-preview img {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+    }
+    
+    .submit-btn {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(108,139,253,.4);
+    }
+    
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .news-feed {
+      margin-top: 3rem;
+    }
+    
+    .news-item {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+      animation: slideIn 0.5s ease;
+    }
+    
+    .news-item img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    
+    .news-item h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--brand);
+    }
+    
+    .news-item p {
+      margin: 0 0 1rem 0;
+      line-height: 1.6;
+    }
+    
+    .news-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 1rem;
+    }
+    
+    .delete-btn {
+      background: var(--danger);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .delete-btn:hover {
+      background: #e74c3c;
+    }
+    
+    .success-message {
+      background: rgba(57,217,138,.1);
+      border: 1px solid rgba(57,217,138,.3);
+      color: var(--ok);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-top: 1rem;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes gradientText{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @media (max-width: 700px) {
+      .upload-section {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+      
+      .news-item {
+        margin: 1rem;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="ai-awareness.html" class="back-btn">← Back to Main</a>
+  
+  <div class="container">
+    <div class="news-header">
+      <h1>🚀 AI News & Updates</h1>
+      <p style="color: var(--muted); font-size: 18px;">Share the latest news and updates about AI technology</p>
+    </div>
+    
+    <div class="upload-section">
+      <h2 style="margin-top: 0; text-align: center; color: var(--brand);">📝 Create News Post</h2>
+      
+      <form class="upload-form" id="newsForm">
+        <div class="form-group">
+          <label for="newsTitle">News Title *</label>
+          <input type="text" id="newsTitle" class="form-input" placeholder="Enter news title..." required maxlength="100">
+        </div>
+        
+        <div class="form-group">
+          <label for="newsContent">News Content *</label>
+          <textarea id="newsContent" class="form-input form-textarea" placeholder="Write your news content here..." required maxlength="1000"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Upload Image (Optional)</label>
+          <div class="image-upload" id="imageUpload">
+            <input type="file" id="imageInput" accept="image/*">
+            <div class="upload-icon">📷</div>
+            <div>
+              <strong>Click to upload</strong> or drag and drop<br>
+              <small style="color: var(--muted);">PNG, JPG, GIF up to 5MB</small>
+            </div>
+            <div class="image-preview" id="imagePreview"></div>
+          </div>
+        </div>
+        
+        <button type="submit" class="submit-btn" id="submitBtn">
+          🚀 Publish News
+        </button>
+        
+        <div id="successMessage" class="success-message" style="display: none;">
+          ✅ News posted successfully!
+        </div>
+      </form>
+    </div>
+    
+    <div class="news-feed">
+      <h2 style="text-align: center; color: var(--brand); margin-bottom: 2rem;">📰 Latest News</h2>
+      <div id="newsFeed">
+        <!-- Sample news item -->
+        <div class="news-item">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNmM4YmZkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BSSBOZXdzIEltYWdlPC90ZXh0Pjwvc3ZnPg==" alt="AI News">
+          <h3>Welcome to AI News Portal!</h3>
+          <p>This is your space to share and discover the latest AI technology news and updates. Upload images and write about breakthrough developments in artificial intelligence.</p>
+          <div class="news-meta">
+            <span>📅 Posted today</span>
+            <button class="delete-btn" onclick="deleteNews(this)">🗑️ Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const newsForm = document.getElementById('newsForm');
+    const imageInput = document.getElementById('imageInput');
+    const imageUpload = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('imagePreview');
+    const newsFeed = document.getElementById('newsFeed');
+    const successMessage = document.getElementById('successMessage');
+    
+    // Load saved news from localStorage
+    let newsData = JSON.parse(localStorage.getItem('aiNews')) || [];
+    
+    // Image upload handling
+    imageInput.addEventListener('change', handleImageUpload);
+    
+    // Drag and drop functionality
+    imageUpload.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      imageUpload.classList.add('dragover');
+    });
+    
+    imageUpload.addEventListener('dragleave', () => {
+      imageUpload.classList.remove('dragover');
+    });
+    
+    imageUpload.addEventListener('drop', (e) => {
+      e.preventDefault();
+      imageUpload.classList.remove('dragover');
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        imageInput.files = files;
+        handleImageUpload();
+      }
+    });
+    
+    function handleImageUpload() {
+      const file = imageInput.files[0];
+      if (file) {
+        if (file.size > 5 * 1024 * 1024) {
+          alert('File size must be less than 5MB');
+          return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          imagePreview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+    
+    // Form submission
+    newsForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const title = document.getElementById('newsTitle').value.trim();
+      const content = document.getElementById('newsContent').value.trim();
+      const imageFile = imageInput.files[0];
+      
+      if (!title || !content) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      const newsItem = {
+        id: Date.now(),
+        title: title,
+        content: content,
+        image: null,
+        timestamp: new Date().toLocaleString()
+      };
+      
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          newsItem.image = e.target.result;
+          saveAndDisplayNews(newsItem);
+        };
+        reader.readAsDataURL(imageFile);
+      } else {
+        saveAndDisplayNews(newsItem);
+      }
+    });
+    
+    function saveAndDisplayNews(newsItem) {
+      newsData.unshift(newsItem);
+      localStorage.setItem('aiNews', JSON.stringify(newsData));
+      
+      // Reset form
+      newsForm.reset();
+      imagePreview.innerHTML = '';
+      
+      // Show success message
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 3000);
+      
+      // Refresh news feed
+      displayNews();
+    }
+    
+    function displayNews() {
+      newsFeed.innerHTML = '';
+      
+      newsData.forEach(item => {
+        const newsElement = document.createElement('div');
+        newsElement.className = 'news-item';
+        newsElement.innerHTML = `
+          ${item.image ? `<img src="${item.image}" alt="News Image">` : ''}
+          <h3>${item.title}</h3>
+          <p>${item.content}</p>
+          <div class="news-meta">
+            <span>📅 ${item.timestamp}</span>
+            <button class="delete-btn" onclick="deleteNews(${item.id})">🗑️ Delete</button>
+          </div>
+        `;
+        newsFeed.appendChild(newsElement);
+      });
+      
+      if (newsData.length === 0) {
+        newsFeed.innerHTML = `
+          <div class="news-item" style="text-align: center; color: var(--muted);">
+            <h3>No news yet</h3>
+            <p>Be the first to share AI news and updates!</p>
+          </div>
+        `;
+      }
+    }
+    
+    function deleteNews(id) {
+      if (typeof id === 'object') {
+        // Called from HTML onclick, find the item
+        const newsItem = id.closest('.news-item');
+        const index = Array.from(newsFeed.children).indexOf(newsItem);
+        if (index > -1) {
+          newsData.splice(index, 1);
+        }
+      } else {
+        // Called with ID
+        newsData = newsData.filter(item => item.id !== id);
+      }
+      
+      localStorage.setItem('aiNews', JSON.stringify(newsData));
+      displayNews();
+    }
+    
+    // Initialize news display
+    displayNews();
+  </script>
+</body>
+</html>

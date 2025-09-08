@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Awareness • Learn, Use, and Question</title>
+  <meta name="description" content="An attractive, responsive single-page site to raise awareness about Artificial Intelligence: what it is, how it works, benefits, risks, ethics, and how to use it responsibly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">🤖</span>
+        <span>AI Awareness</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#what">What is AI?</a>
+        <a href="#how">How it Works</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#risks">Risks</a>
+        <a href="#ethics">Ethics</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#resources">Resources</a>
+        <a href="chatbot.html" target="_blank">ASK AI</a>
+        <a href="update.html" target="_blank">NEWS</a>
+      </nav>
+      <label class="toggle" title="Toggle light/dark">
+        <span>Light</span>
+        <input id="modeToggle" type="checkbox" aria-label="Toggle color mode" />
+      </label>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker">Learn • Use • Question</span>
+        <h1>Understand Artificial Intelligence—beyond the buzzwords.</h1>
+        <p class="lead">This page gives you a quick, practical tour of AI: what it is, how it works, where it helps, where it harms, and how to use it responsibly.</p>
+        <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap">
+          <a class="btn" href="#what">Start Exploring</a>
+          <a class="btn ghost" href="#quiz">Take the Quiz</a>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap">
+          <span class="pill">⚡ Real-world use cases</span>
+          <span class="pill">🛡️ Safety & ethics</span>
+          <span class="pill">📚 Learn more</span>
+        </div>
+      </div>
+      <div class="floaty">
+        <div class="hero-cards">
+          <div class="card">
+            <div class="stat">97%</div>
+            <div class="sub">of executives say AI is critical to their business strategy.</div>
+          </div>
+          <div class="card">
+            <h3>AI in daily life</h3>
+            <p class="sub">Maps, camera portrait mode, spam filters, shopping recommendations—AI is already helping behind the scenes.</p>
+          </div>
+          <div class="card">
+            <h3>Generative AI</h3>
+            <p class="sub">Models that create text, images, code, music and more. Great power, great responsibility.</p>
+          </div>
+          <div class="card">
+            <h3>Responsible Use</h3>
+            <p class="sub">Check sources, protect privacy, avoid bias, and keep a human in the loop.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS AI -->
+  <section id="what">
+    <div class="container">
+      <h2>What is AI?</h2>
+      <p class="sub">Artificial Intelligence refers to computer systems that perform tasks that usually require human intelligence—such as understanding language, recognizing images, making predictions, or taking actions.</p>
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3>Narrow vs General</h3>
+          <p>Most AI today is <strong>narrow</strong>: it does one thing very well (e.g., translate text). <em>General AI</em>—able to do anything a human can—remains a research goal.</p>
+        </div>
+        <div class="card">
+          <h3>Learning from Data</h3>
+          <p>Machine learning lets systems <strong>learn patterns</strong> from examples rather than being explicitly programmed for each rule.</p>
+        </div>
+        <div class="card">
+          <h3>Generative Models</h3>
+          <p>These models learn from vast datasets to <strong>generate</strong> new content: essays, images, code, even video.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <h2>How does AI work?</h2>
+      <p class="sub">At a high level: collect data → train a model → evaluate → deploy → monitor.</p>
+      <div class="grid-2" style="margin-top:18px">
+        <div class="card">
+          <h3>Data & Training</h3>
+          <ul>
+            <li>Data is cleaned and labeled (when needed).</li>
+            <li>Models adjust internal <em>weights</em> to reduce error.</li>
+            <li>Training uses lots of compute (GPUs/TPUs).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Evaluation & Monitoring</h3>
+          <ul>
+            <li>Test on unseen data to check performance.</li>
+            <li>Watch for drift, bias, and reliability issues.</li>
+            <li>Update the model as the world changes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline" style="margin-top:16px">
+        <div class="tl-item card">
+          <div class="dot" aria-hidden="true"></div>
+          <strong>1950s–80s:</strong> Early AI & expert systems
+        </div>
+        <div class="tl-item card">
+          <div class="dot" aria-hidden="true"></div>
+          <strong>2012–2016:</strong> Deep learning revolution (vision & speech)
+        </div>
+        <div class="tl-item card">
+          <div class="dot" aria-hidden="true"></div>
+          <strong>2018–today:</strong> Large language & generative models
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits">
+    <div class="container">
+      <h2>Benefits</h2>
+      <p class="sub">AI can amplify human ability when used thoughtfully.</p>
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3>Productivity</h3>
+          <p>Automate repetitive tasks, draft content, summarize docs, write boilerplate code.</p>
+        </div>
+        <div class="card">
+          <h3>Healthcare</h3>
+          <p>Assist diagnosis, personalize treatment, analyze medical imagery, speed up research.</p>
+        </div>
+        <div class="card">
+          <h3>Accessibility</h3>
+          <p>Live captions, screen readers, language translation, voice assistants.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISKS -->
+  <section id="risks">
+    <div class="container">
+      <h2>Risks & Limitations</h2>
+      <p class="sub">AI is powerful, but not perfect. Be aware of failure modes.</p>
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3>Bias</h3>
+          <p>Models reflect patterns in their data. If data is biased, outputs can be unfair.</p>
+        </div>
+        <div class="card">
+          <h3>Privacy</h3>
+          <p>Training or prompts can expose sensitive information if not handled carefully.</p>
+        </div>
+        <div class="card">
+          <h3>Hallucinations</h3>
+          <p>Generative models can sound confident yet be wrong. Always verify critical info.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <span class="badge">✅ Responsible AI Checklist</span>
+        <ul>
+          <li>Define purpose & risk level.</li>
+          <li>Use high-quality, diverse data.</li>
+          <li>Document limitations; set guardrails.</li>
+          <li>Keep a human in the loop for high-stakes tasks.</li>
+          <li>Test for bias & robustness; monitor in production.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETHICS & POLICY -->
+  <section id="ethics">
+    <div class="container">
+      <h2>Ethics & Responsible Use</h2>
+      <p class="sub">Good AI is aligned with human values and laws.</p>
+      <div class="grid-2" style="margin-top:18px">
+        <details>
+          <summary>Transparency</summary>
+          <p>Be clear when content is AI-generated. Document data sources where possible.</p>
+        </details>
+        <details>
+          <summary>Accountability</summary>
+          <p>Define who is responsible for outcomes; enable audits and redress mechanisms.</p>
+        </details>
+        <details>
+          <summary>Safety</summary>
+          <p>Prevent harmful use (e.g., scams, malware, harassment). Use safety filters and rate limits.</p>
+        </details>
+        <details>
+          <summary>Privacy</summary>
+          <p>Protect user data; minimize collection; comply with regulations; anonymize where possible.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <div class="container">
+      <h2>Quick Quiz: Test your AI awareness</h2>
+      <p class="sub">Select the best answer. Then submit to see your score.</p>
+      <form class="quiz" id="quizForm">
+        <div class="q">
+          <strong>1) Which statement is true?</strong>
+          <div class="choices">
+            <label><input type="radio" name="q1" value="a"> AI always understands meaning like a human.</label>
+            <label><input type="radio" name="q1" value="b"> Many AI systems find patterns in data and predict likely outputs.</label>
+            <label><input type="radio" name="q1" value="c"> All AI is conscious.</label>
+          </div>
+        </div>
+        <div class="q">
+          <strong>2) A good practice for responsible AI is…</strong>
+          <div class="choices">
+            <label><input type="radio" name="q2" value="a"> Hide when content is AI-generated.</label>
+            <label><input type="radio" name="q2" value="b"> Keep a human in the loop for high-stakes decisions.</label>
+            <label><input type="radio" name="q2" value="c"> Ignore model limitations.</label>
+          </div>
+        </div>
+        <div class="q">
+          <strong>3) What is a common limitation of generative AI?</strong>
+          <div class="choices">
+            <label><input type="radio" name="q3" value="a"> It can fabricate facts confidently.</label>
+            <label><input type="radio" name="q3" value="b"> It cannot write any code.</label>
+            <label><input type="radio" name="q3" value="c"> It never makes mistakes.</label>
+          </div>
+        </div>
+        <button type="submit" class="btn">Submit Answers</button>
+        <div id="score" class="score" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="container">
+      <h2>Learn More</h2>
+      <p class="sub">Explore tutorials, courses, and communities.</p>
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3>Intro to AI</h3>
+          <ul>
+            <li><a href="https://www.elementsofai.com/" target="_blank" rel="noopener">Elements of AI (free course)</a></li>
+            <li><a href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener">ML Crash Course</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Hands-on</h3>
+          <ul>
+            <li><a href="https://pytorch.org/" target="_blank" rel="noopener">PyTorch</a>, <a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a></li>
+            <li><a href="https://scikit-learn.org/" target="_blank" rel="noopener">scikit-learn</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Responsible AI</h3>
+          <ul>
+            <li><a href="https://aiethicsguidelines.org/" target="_blank" rel="noopener">AI Ethics Guidelines</a></li>
+            <li><a href="https://www.partnershiponai.org/" target="_blank" rel="noopener">Partnership on AI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <span class="logo">🤖</span><strong>AI Awareness</strong>
+        </div>
+        <p>Built as a simple, attractive, and responsive single-page site to help everyone understand AI—its power and its limits.</p>
+      </div>
+      <div>
+        <strong>Sections</strong>
+        <ul>
+          <li><a href="#what">What is AI?</a></li>
+          <li><a href="#how">How it Works</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#risks">Risks</a></li>
+          <li><a href="#ethics">Ethics</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Share</strong>
+        <p>Want to reuse this page? Save it as <code>index.html</code> and host on any static site (GitHub Pages, Netlify, Vercel).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
